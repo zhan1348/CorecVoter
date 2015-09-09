@@ -16,6 +16,12 @@
 		5B3B29D81B93B08200059F71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B29D61B93B08200059F71 /* LaunchScreen.storyboard */; };
 		5B3B29E31B93B08200059F71 /* CorecVoterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B29E21B93B08200059F71 /* CorecVoterTests.m */; };
 		5B3B29EE1B93B08200059F71 /* CorecVoterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B29ED1B93B08200059F71 /* CorecVoterUITests.m */; };
+		5BD913FD1B9F771500A2AB03 /* RecordingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD913FB1B9F771500A2AB03 /* RecordingTableViewCell.m */; };
+		5BD913FE1B9F771500A2AB03 /* RecordingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD913FC1B9F771500A2AB03 /* RecordingTableViewCell.xib */; };
+		5BD914011B9F81A000A2AB03 /* Recording.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD914001B9F81A000A2AB03 /* Recording.m */; };
+		5BD914041B9F83D500A2AB03 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD914031B9F83D500A2AB03 /* Helper.m */; };
+		5BD914091B9F9EF200A2AB03 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD914081B9F9EF200A2AB03 /* like.png */; };
+		5BD9140D1B9FA0A900A2AB03 /* unlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD9140C1B9FA0A900A2AB03 /* unlike.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,18 @@
 		5B3B29E91B93B08200059F71 /* CorecVoterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorecVoterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3B29ED1B93B08200059F71 /* CorecVoterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CorecVoterUITests.m; sourceTree = "<group>"; };
 		5B3B29EF1B93B08200059F71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BD913FA1B9F771500A2AB03 /* RecordingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingTableViewCell.h; sourceTree = "<group>"; };
+		5BD913FB1B9F771500A2AB03 /* RecordingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingTableViewCell.m; sourceTree = "<group>"; };
+		5BD913FC1B9F771500A2AB03 /* RecordingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingTableViewCell.xib; sourceTree = "<group>"; };
+		5BD913FF1B9F81A000A2AB03 /* Recording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recording.h; sourceTree = "<group>"; };
+		5BD914001B9F81A000A2AB03 /* Recording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recording.m; sourceTree = "<group>"; };
+		5BD914021B9F83D500A2AB03 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		5BD914031B9F83D500A2AB03 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		5BD914051B9F8BB600A2AB03 /* Futura-Extended.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Extended.ttf"; sourceTree = "<group>"; };
+		5BD914061B9F8BBA00A2AB03 /* Futura-Extra Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Extra Bold.ttf"; sourceTree = "<group>"; };
+		5BD914071B9F8BBF00A2AB03 /* Futura-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light.ttf"; sourceTree = "<group>"; };
+		5BD914081B9F9EF200A2AB03 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
+		5BD9140C1B9FA0A900A2AB03 /* unlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlike.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +122,22 @@
 		5B3B29C41B93B08200059F71 /* CorecVoter */ = {
 			isa = PBXGroup;
 			children = (
+				5BD914071B9F8BBF00A2AB03 /* Futura-Light.ttf */,
+				5BD914051B9F8BB600A2AB03 /* Futura-Extended.ttf */,
+				5BD914061B9F8BBA00A2AB03 /* Futura-Extra Bold.ttf */,
+				5BD914081B9F9EF200A2AB03 /* like.png */,
+				5BD9140C1B9FA0A900A2AB03 /* unlike.png */,
 				5B3B29C81B93B08200059F71 /* AppDelegate.h */,
+				5BD914021B9F83D500A2AB03 /* Helper.h */,
+				5BD914031B9F83D500A2AB03 /* Helper.m */,
 				5B3B29C91B93B08200059F71 /* AppDelegate.m */,
 				5B3B29CB1B93B08200059F71 /* FirstViewController.h */,
 				5B3B29CC1B93B08200059F71 /* FirstViewController.m */,
+				5BD913FA1B9F771500A2AB03 /* RecordingTableViewCell.h */,
+				5BD913FB1B9F771500A2AB03 /* RecordingTableViewCell.m */,
+				5BD913FC1B9F771500A2AB03 /* RecordingTableViewCell.xib */,
+				5BD913FF1B9F81A000A2AB03 /* Recording.h */,
+				5BD914001B9F81A000A2AB03 /* Recording.m */,
 				5B3B29CE1B93B08200059F71 /* SecondViewController.h */,
 				5B3B29CF1B93B08200059F71 /* SecondViewController.m */,
 				5B3B29D11B93B08200059F71 /* Main.storyboard */,
@@ -249,8 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B3B29D81B93B08200059F71 /* LaunchScreen.storyboard in Resources */,
+				5BD914091B9F9EF200A2AB03 /* like.png in Resources */,
 				5B3B29D51B93B08200059F71 /* Assets.xcassets in Resources */,
+				5BD9140D1B9FA0A900A2AB03 /* unlike.png in Resources */,
 				5B3B29D31B93B08200059F71 /* Main.storyboard in Resources */,
+				5BD913FE1B9F771500A2AB03 /* RecordingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B3B29D01B93B08200059F71 /* SecondViewController.m in Sources */,
+				5BD913FD1B9F771500A2AB03 /* RecordingTableViewCell.m in Sources */,
 				5B3B29CA1B93B08200059F71 /* AppDelegate.m in Sources */,
 				5B3B29CD1B93B08200059F71 /* FirstViewController.m in Sources */,
+				5BD914041B9F83D500A2AB03 /* Helper.m in Sources */,
 				5B3B29C71B93B08200059F71 /* main.m in Sources */,
+				5BD914011B9F81A000A2AB03 /* Recording.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +538,7 @@
 				5B3B29F41B93B08200059F71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B3B29F51B93B08200059F71 /* Build configuration list for PBXNativeTarget "CorecVoterTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +547,7 @@
 				5B3B29F71B93B08200059F71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B3B29F81B93B08200059F71 /* Build configuration list for PBXNativeTarget "CorecVoterUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +556,7 @@
 				5B3B29FA1B93B08200059F71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

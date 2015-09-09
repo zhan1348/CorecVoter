@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
 
-
+@property (weak, nonatomic) IBOutlet UITableView *recordingTable;
+@property (strong, nonatomic) UISearchController *resultSearchController;
+@property BOOL searchControllerWasActive;
+@property BOOL searchControllerSearchFieldWasFirstResponder;
+@property NSMutableArray *filteredList;
 @end
 
