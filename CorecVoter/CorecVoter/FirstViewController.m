@@ -26,11 +26,12 @@ NSString *const oTableCellNibName = @"RecordingTableViewCell";
     self.recordingTable.dataSource = self;
     self.recordingTable.rowHeight = 80;
     // Do any additional setup after loading the view, typically from a nib.
+    /** Get random data for demo purposes */
     allRecordings = [Recording allRecordings];
     NSLog(@"viewDidload all recordings %@",allRecordings);
     [self.recordingTable registerNib:[UINib nibWithNibName:oTableCellNibName bundle:nil] forCellReuseIdentifier:oCellIdentifier];
 
-    
+    /** Setup search bar */
     _resultSearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _resultSearchController.searchResultsUpdater = self;
     _resultSearchController.dimsBackgroundDuringPresentation = false;
@@ -41,9 +42,8 @@ NSString *const oTableCellNibName = @"RecordingTableViewCell";
     
     [_resultSearchController.searchBar sizeToFit];
     
-    /** Change custom text */
-    /**    [searchBar setValue:@"customString" forKey:@"_cancelButtonText"]; */
-    
+
+    /** Prints all known fonts for debugging purposes */
     self.recordingTable.tableHeaderView = _resultSearchController.searchBar;
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
     
@@ -74,7 +74,7 @@ NSString *const oTableCellNibName = @"RecordingTableViewCell";
 
 
 #pragma -mark TableView Delegates
-
+/** TableView Delegates*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSLog(@"num of section");
@@ -96,7 +96,7 @@ NSString *const oTableCellNibName = @"RecordingTableViewCell";
 //{
 //    return nil;
 //}
-
+/** Cell configuartion */
 -(RecordingTableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Recording *recording = nil;
     if (self.resultSearchController.active) {
@@ -124,7 +124,7 @@ NSString *const oTableCellNibName = @"RecordingTableViewCell";
     return cell;
 
 }
-
+#pragma -mark Search Controller Delegates
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     // update the filtered array based on the search text
     NSString *searchText = searchController.searchBar.text;
