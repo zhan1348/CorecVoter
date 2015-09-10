@@ -13,7 +13,6 @@
 		5B3B29D01B93B08200059F71 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B29CF1B93B08200059F71 /* SecondViewController.m */; };
 		5B3B29D31B93B08200059F71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B29D11B93B08200059F71 /* Main.storyboard */; };
 		5B3B29D51B93B08200059F71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B29D41B93B08200059F71 /* Assets.xcassets */; };
-		5B3B29D81B93B08200059F71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3B29D61B93B08200059F71 /* LaunchScreen.storyboard */; };
 		5B3B29E31B93B08200059F71 /* CorecVoterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B29E21B93B08200059F71 /* CorecVoterTests.m */; };
 		5B3B29EE1B93B08200059F71 /* CorecVoterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3B29ED1B93B08200059F71 /* CorecVoterUITests.m */; };
 		5BD913FD1B9F771500A2AB03 /* RecordingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD913FB1B9F771500A2AB03 /* RecordingTableViewCell.m */; };
@@ -52,7 +51,6 @@
 		5B3B29CF1B93B08200059F71 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		5B3B29D21B93B08200059F71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B3B29D41B93B08200059F71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5B3B29D71B93B08200059F71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B3B29D91B93B08200059F71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B3B29DE1B93B08200059F71 /* CorecVoterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorecVoterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3B29E21B93B08200059F71 /* CorecVoterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CorecVoterTests.m; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				5B3B29CF1B93B08200059F71 /* SecondViewController.m */,
 				5B3B29D11B93B08200059F71 /* Main.storyboard */,
 				5B3B29D41B93B08200059F71 /* Assets.xcassets */,
-				5B3B29D61B93B08200059F71 /* LaunchScreen.storyboard */,
 				5B3B29D91B93B08200059F71 /* Info.plist */,
 				5B3B29C51B93B08200059F71 /* Supporting Files */,
 			);
@@ -278,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3B29D81B93B08200059F71 /* LaunchScreen.storyboard in Resources */,
 				5BD914091B9F9EF200A2AB03 /* like.png in Resources */,
 				5B3B29D51B93B08200059F71 /* Assets.xcassets in Resources */,
 				5BD9140D1B9FA0A900A2AB03 /* unlike.png in Resources */,
@@ -356,14 +352,6 @@
 				5B3B29D21B93B08200059F71 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5B3B29D61B93B08200059F71 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B3B29D71B93B08200059F71 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -454,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CorecVoter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CorecVoter.CorecVoter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CorecVoter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CorecVoter.CorecVoter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
