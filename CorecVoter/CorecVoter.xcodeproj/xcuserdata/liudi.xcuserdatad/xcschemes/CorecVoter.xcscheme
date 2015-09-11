@@ -20,6 +20,20 @@
                ReferencedContainer = "container:CorecVoter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B3B29E81B93B08200059F71"
+               BuildableName = "CorecVoterUITests.xctest"
+               BlueprintName = "CorecVoterUITests"
+               ReferencedContainer = "container:CorecVoter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,16 +49,6 @@
                BlueprintIdentifier = "5B3B29DD1B93B08200059F71"
                BuildableName = "CorecVoterTests.xctest"
                BlueprintName = "CorecVoterTests"
-               ReferencedContainer = "container:CorecVoter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B3B29E81B93B08200059F71"
-               BuildableName = "CorecVoterUITests.xctest"
-               BlueprintName = "CorecVoterUITests"
                ReferencedContainer = "container:CorecVoter.xcodeproj">
             </BuildableReference>
          </TestableReference>
