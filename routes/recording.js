@@ -20,8 +20,9 @@ router.post('/upload', function(req, res) {
 });
 
 router.post('/newrecord', function(req,res){
-  var title = 1;
-  console.log(req);
+  var title = req.body.title
+  var description = req.body.description;
+  console.log('title:' + title + ', description:' + description);
   res.send('OK');
 });
 
