@@ -23,27 +23,28 @@ router.post('/upload', function(req, res) {
 /* Get listing recordings */
 router.get('/list', function(req,res, next) {
   // res.send(apple = appl, orange = org, charles, crls);
-  // var Recording = Parse.Object.extend("RecordingObject");
-  // var query = new Parse.Query(Recording);
-  // query.find({
-  //   success: function(results) {
-  //     console.log("Successfully retrieved " + results.length);
-  //     // Do something with the returned Parse.Object values
-  //     for (var i = 0; i < results.length; i++) {
-  //       var object = results[i];
-  //       console.log(object.id + ' - ' + object.get('column'));
-  //     }
-  //     console.log("Successfully retrieved " + results.length );
-  //     res.send('OK');
-  //
-  //   },
-  //   error: function(error) {
-  //     console.error("Error: " + error.code + " " + error.message);
-  //     res.send('error');
-  //
-  //   }
-  // });
-  res.json([{a:1222}, {a:233333}, {a:34444}]);
+  var Recording = Parse.Object.extend("RecordingObject");
+  var query = new Parse.Query(Recording);
+  query.find({
+    success: function(results) {
+      console.log("Successfully retrieved " + results.length);
+      // Do something with the returned Parse.Object values
+      for (var i = 0; i < results.length; i++) {
+        var object = results[i];
+        console.log(object.id + ' - ' + object.get('column'));
+      }
+      console.log("Successfully retrieved " + results.length );
+      res.send(results);
+
+    },
+    error: function(error) {
+      console.error("Error: " + error.code + " " + error.message);
+      res.status('404');
+      res.send('error');
+
+    }
+  });
+  // res.json([{a:1222}, {a:233333}, {a:34444}]);
 });
 
 router.get('/send', function(req,res, next) {
