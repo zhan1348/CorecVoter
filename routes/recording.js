@@ -31,10 +31,12 @@ router.post('/newrecord', function(req,res){
     success: function(Object) {
         console.log("success!!!");
         res.status(200);
+        res.send("sucess");
     },
     error : function(obj, error) {
       console.log(error);
       res.status(403);
+      res.send("failed");
     }
   });
   // res.send('OK');
