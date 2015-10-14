@@ -18,7 +18,7 @@ router.get('/list/:user_id', function(req, res, next) {
 
   var Recording = Parse.Object.extend("RecordingObject");
   var query = new Parse.Query(Recording);
-  query.equalTo("userID", req.params.user_id);
+  query.equalTo("UserID", req.params.user_id);
   query.find({
     success: function(results) {
       console.log("Successfully retrieved " + results.length);
