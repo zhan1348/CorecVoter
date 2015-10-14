@@ -30,15 +30,15 @@ Parse.initialize("8Nx1MZhNZzI6jw1SM73isCHpmGGIPBvx0OQTJJl3","jU9dbSvBPVQLHD9saDx
 //
 var RecordingObject = Parse.Object.extend("RecordingObject");
 var recordingObject = new RecordingObject();
-console.log("here !");
-recordingObject.save({foo: "bar"}, {
-  success: function(Object) {
-      console.log("success!!!");
-  },
-  error : function(obj, error) {
-    console.log(error);
-  }
-});
+// console.log("here !");
+// recordingObject.save({foo: "bar"}, {
+//   success: function(Object) {
+//       console.log("success!!!");
+//   },
+//   error : function(obj, error) {
+//     console.log(error);
+//   }
+// });
 
 
 app.use('/', routes);
