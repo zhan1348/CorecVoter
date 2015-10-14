@@ -13,6 +13,34 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/list/:user_id', function(req, res, next) {
+  console.log(req.params.user_id);
+
+  var Recording = Parse.Object.extend("RecordingObject");
+  var query = new Parse.Query(Recording);
+  query.equalTo("userID", req.params.user_id);
+  query.find({
+    success: function(results) {
+      console.log("Successfully retrieved " + results.length);
+      // Do something with the returned Parse.Object values
+      for (var i = 0; i < results.length; i++) {
+        var object = results[i];
+        console.log(object.id + ' - ' + object.get('column'));
+      }
+      console.log("Successfully retrieved " + results.length );
+      res.send(results);
+
+    },
+    error: function(error) {
+      console.error("Error: " + error.code + " " + error.message);
+      res.status('404');
+      res.send('error');
+
+    }
+  });
+  res.send('respond with a resource');
+});
+
 
 router.post('/upload', function(req, res) {
   console.log(req);
@@ -22,12 +50,13 @@ router.post('/upload', function(req, res) {
 router.post('/newrecord', function(req,res){
   var title = req.body.title
   var description = req.body.description;
+  var userID = req.body.userID;
   console.log(req.body);
-  console.log('title:' + title + ', description:' + description);
+  console.log('title:' + title + ', description:' + description+', userID:' +userID);
   var RecordingObject = Parse.Object.extend("RecordingObject");
   var recordingObject = new RecordingObject();
   console.log("here !");
-  recordingObject.save({recordingTitle: title,RecordingDescription: description}, {
+  recordingObject.save({recordingTitle: title,RecordingDescription: description, user:userID}, {
     success: function(Object) {
         console.log("success!!!");
         res.status(200);
