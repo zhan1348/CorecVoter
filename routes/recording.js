@@ -19,6 +19,11 @@ router.post('/upload', function(req, res) {
   res.send('OK');
 });
 
+router.post('/newrecord', function(req,res){
+  var title = 1;
+  console.log(req);
+  res.send('OK');
+});
 
 /* Get listing recordings */
 router.get('/list', function(req,res, next) {
