@@ -14,6 +14,10 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.post('/upload', function(req, res) {
+  console.log(req);
+  res.send('OK');
+});
 
 
 /* Get listing recordings */
@@ -30,12 +34,14 @@ router.get('/list', function(req,res, next) {
         console.log(object.id + ' - ' + object.get('column'));
       }
       console.log("Successfully retrieved " + results.length );
+      res.send('OK');
+
     },
     error: function(error) {
       console.error("Error: " + error.code + " " + error.message);
-    }
-    res.send(results);
+      res.send('error');
 
+    }
   });
   // res.json([{a:1222}, {a:233333}, {a:34444}]);
 });
