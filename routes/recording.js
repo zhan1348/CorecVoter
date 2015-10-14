@@ -24,7 +24,20 @@ router.post('/newrecord', function(req,res){
   var description = req.body.description;
   console.log(req.body);
   console.log('title:' + title + ', description:' + description);
-  res.send('OK');
+  var RecordingObject = Parse.Object.extend("RecordingObject");
+  var recordingObject = new RecordingObject();
+  console.log("here !");
+  recordingObject.save({recordingTitle: title,RecordingDescription: description}, {
+    success: function(Object) {
+        console.log("success!!!");
+        res.status(200);
+    },
+    error : function(obj, error) {
+      console.log(error);
+      res.status(403);
+    }
+  });
+  // res.send('OK');
 });
 
 /* Get listing recordings */
