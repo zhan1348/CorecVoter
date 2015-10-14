@@ -6,7 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Parse = require('parse/node').Parse;
 var routes = require('./routes/index');
-var recordings = require('./routes/recording');
+var recording = require('./routes/recording');
+
+/* multer for uploading multi-media */
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 var app = express();
 
@@ -38,7 +42,7 @@ recordingObject.save({foo: "bar"}, {
 
 
 app.use('/', routes);
-app.use('/recording', recordings);
+app.use('/recording', recording);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

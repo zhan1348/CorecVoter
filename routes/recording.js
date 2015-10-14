@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var Parse = require('parse/node').Parse;
+
+
+
+
 Parse.initialize("8Nx1MZhNZzI6jw1SM73isCHpmGGIPBvx0OQTJJl3","jU9dbSvBPVQLHD9saDx4PU7FNvqUkxZLCYFgLLpq");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  console.log(req);
   res.send('respond with a resource');
 });
 
@@ -16,7 +21,7 @@ router.get('/list', function(req,res, next) {
   // res.send(apple = appl, orange = org, charles, crls);
   var Recording = Parse.Object.extend("RecordingObject");
   var query = new Parse.Query(Recording);
-  query.forEach({
+  query.find({
     success: function(results) {
       console.log("Successfully retrieved " + results.length);
       // Do something with the returned Parse.Object values
@@ -24,14 +29,15 @@ router.get('/list', function(req,res, next) {
         var object = results[i];
         console.log(object.id + ' - ' + object.get('column'));
       }
-      status.message("Successfully retrieved " + results.length );
+      console.log("Successfully retrieved " + results.length );
     },
     error: function(error) {
-      status.error("Error: " + error.code + " " + error.message);
+      console.error("Error: " + error.code + " " + error.message);
     }
-  });
+    res.send(results);
 
-  res.json([{a:1222}, {a:233333}, {a:34444}]);
+  });
+  // res.json([{a:1222}, {a:233333}, {a:34444}]);
 });
 
 router.get('/send', function(req,res, next) {
@@ -48,7 +54,7 @@ router.get('/send', function(req,res, next) {
     }
   });
   res.json([{a:1222}, {a:233333}, {a:34444}]);
-}
+});
 
 /* method handling post request*/
 // router.get('/post', function(req,res, next,post){
