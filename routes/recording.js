@@ -56,7 +56,7 @@ router.post('/newrecord', function(req,res){
   var RecordingObject = Parse.Object.extend("RecordingObject");
   var recordingObject = new RecordingObject();
   console.log("here !");
-  recordingObject.save({recordingTitle: title,RecordingDescription: description, user:userID}, {
+  recordingObject.save({RecordingTitle: title,RecordingDescription: description, UserID:userID}, {
     success: function(Object) {
         console.log("success!!!");
         res.status(200);
