@@ -41,6 +41,29 @@ router.get('/list/:user_id', function(req, res, next) {
   // res.send('respond with a resource');
 });
 
+router.post('/delete', function(req, res){
+  console.log(req.body.recordingID);
+  var recordingID = req.body.recordingID;
+  var Recording = Parse.Object.extend("RecordingObject");
+  var query = new Parse.Query(Recording);
+  query.equalTo("objectId", recordingID);
+  query.get( {
+    success: function(myObj) {
+      // The object was retrieved successfully.
+      myObj.destroy({});
+      console.log('destroying object');
+      res.status(200);
+      res.send("OK");
+
+    },
+    error: function(object, error) {
+      // The object was not retrieved successfully.
+      // error is a Parse.Error with an error code and description.
+      res.status(403);
+      res.send("error");
+    }
+  });
+});
 
 router.post('/upload', function(req, res) {
   console.log(req);
