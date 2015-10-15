@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Parse = require('parse/node').Parse;
-
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 
 
@@ -65,10 +66,22 @@ router.post('/delete', function(req, res){
   });
 });
 
-router.post('/upload', function(req, res) {
-  console.log(req);
+router.post('/upload', upload.single('EZAudioTest'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+  console.log("hhhhhh");
+  console.log(req.file);
+  res.status(200);
   res.send('OK');
-});
+
+})
+
+// router.post('/upload', function(req, res) {
+//   // console.log(req.file);
+//   console.log("here");
+//   console.log(req.file.filename);
+//   res.send('OK');
+// });
 
 router.post('/newrecord', function(req,res){
   var title = req.body.title
