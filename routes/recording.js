@@ -1,10 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var Parse = require('parse/node').Parse;
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
+var crypto = require('crypto');
 
+var path = require('path');
 
+var storage = multer.diskStorage({
+  destination: './uploads/',
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      if (err) return cb(err)
+
+      cb(null, raw.toString('hex') + path.extname(file.originalname))
+    })
+  }
+})
+
+var upload = multer({ storage: storage })
 
 Parse.initialize("8Nx1MZhNZzI6jw1SM73isCHpmGGIPBvx0OQTJJl3","jU9dbSvBPVQLHD9saDx4PU7FNvqUkxZLCYFgLLpq");
 
@@ -71,8 +85,36 @@ router.post('/upload', upload.single('EZAudioTest'), function (req, res, next) {
   // req.body will hold the text fields, if there were any
   console.log("hhhhhh");
   console.log(req.file);
-  res.status(200);
-  res.send('OK');
+
+  var title = req.body.title
+  var description = req.body.description;
+  var userID = req.body.userID;
+
+  var latitude = req.body.latitude;
+  var longitude = req.body.longitude;
+
+  console.log(req.body);
+  console.log('title:' + title + ', description:' + description+', userID:' +userID + ', latitude:' + latitude + ', longitude:'+longitude);
+  var RecordingObject = Parse.Object.extend("RecordingObject");
+  var recordingObject = new RecordingObject();
+  console.log("here !");
+  // , Longitutde: longitude, Latitude: latitude
+  var point = new Parse.GeoPoint({latitude: latitude, longitude: longitude});
+  recordingObject.set("location", point);
+  recordingObject.save({Data: req.file, RecordingTitle: title,RecordingDescription: description, UserID:userID}, {
+    success: function(Object) {
+        console.log("success!!!");
+        res.status(200).end();
+    },
+    error : function(obj, error) {
+      console.log(error);
+      res.status(403).end();
+    }
+  });
+
+
+  res.status(404).end();
+  // res.send('OK');
 
 })
 
