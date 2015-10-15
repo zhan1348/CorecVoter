@@ -82,18 +82,20 @@ router.post('/newrecord', function(req,res){
 router.get('/list', function(req,res, next) {
   console.log('here');
   // res.send(apple = appl, orange = org, charles, crls);
-  var longitude = req.query.longitude;
-  console.log(longitude);
-  var latitude = req.query.latitude;
-  console.log('Longitude: ' + longitude + ',Latitude: '+ latitude);
-  var point = new Parse.GeoPoint({latitude: latitude, longitude: longitude});
+  var userLongitude = parseFloat(req.query.longitude);
+  console.log(userLongitude);
+  var userLatitude =  parseFloat(req.query.latitude);
+  console.log('Longitude: ' + userLongitude + ',Latitude: '+ userLatitude);
+  var point = new Parse.GeoPoint({latitude: userLatitude, longitude: userLongitude});
 
   var Recording = Parse.Object.extend("RecordingObject");
   var query = new Parse.Query(Recording);
 
-  query.near("location", userGeoPoint);
+  query.near("location", point);
   query.withinMiles("location", point, 20);
-
+  query.doesNotExist("location");
+  query.exists("longitude");
+  query.exists("latitude");
   query.find({
     success: function(results) {
       console.log("Successfully retrieved " + results.length);
