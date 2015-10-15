@@ -80,8 +80,10 @@ router.post('/newrecord', function(req,res){
 
 /* Get listing recordings */
 router.get('/list', function(req,res, next) {
+  console.log('here');
   // res.send(apple = appl, orange = org, charles, crls);
   var longitude = req.query.longitude;
+  console.log(longitude);
   var latitude = req.query.latitude;
   console.log('Longitude: ' + longitude + ',Latitude: '+ latitude);
   var point = new Parse.GeoPoint({latitude: latitude, longitude: longitude});
