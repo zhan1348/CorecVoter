@@ -83,6 +83,7 @@ router.get('/list', function(req,res, next) {
   // res.send(apple = appl, orange = org, charles, crls);
   var longitude = req.query.longitude;
   var latitude = req.query.latitude;
+  console.log('Longitude: ' + longitude + ',Latitude: '+ latitude);
   var point = new Parse.GeoPoint({latitude: latitude, longitude: longitude});
 
   var Recording = Parse.Object.extend("RecordingObject");
