@@ -51,11 +51,18 @@ router.post('/newrecord', function(req,res){
   var title = req.body.title
   var description = req.body.description;
   var userID = req.body.userID;
+
+  var latitude = req.body.latitude;
+  var longitude = req.body.longitude;
+
   console.log(req.body);
-  console.log('title:' + title + ', description:' + description+', userID:' +userID);
+  console.log('title:' + title + ', description:' + description+', userID:' +userID + ', latitude:' + latitude + ', longitude:'+longitude);
   var RecordingObject = Parse.Object.extend("RecordingObject");
   var recordingObject = new RecordingObject();
   console.log("here !");
+  // , Longitutde: longitude, Latitude: latitude
+  var point = new Parse.GeoPoint({latitude: latitude, longitude: longitude});
+  recordingObject.set("location", point);
   recordingObject.save({RecordingTitle: title,RecordingDescription: description, UserID:userID}, {
     success: function(Object) {
         console.log("success!!!");
@@ -74,8 +81,16 @@ router.post('/newrecord', function(req,res){
 /* Get listing recordings */
 router.get('/list', function(req,res, next) {
   // res.send(apple = appl, orange = org, charles, crls);
+  var longitude = req.query.longitude;
+  var latitude = req.query.latitude;
+  var point = new Parse.GeoPoint({latitude: latitude, longitude: longitude});
+
   var Recording = Parse.Object.extend("RecordingObject");
   var query = new Parse.Query(Recording);
+
+  query.near("location", userGeoPoint);
+  query.withinMiles("location", point, 20);
+
   query.find({
     success: function(results) {
       console.log("Successfully retrieved " + results.length);
