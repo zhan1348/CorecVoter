@@ -47,7 +47,7 @@ router.post('/delete', function(req, res){
   var Recording = Parse.Object.extend("RecordingObject");
   var query = new Parse.Query(Recording);
   query.equalTo("objectId", recordingID);
-  query.get( {
+  query.get(recordingID, {
     success: function(myObj) {
       // The object was retrieved successfully.
       myObj.destroy({});
