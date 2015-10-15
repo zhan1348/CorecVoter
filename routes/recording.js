@@ -93,9 +93,6 @@ router.get('/list', function(req,res, next) {
 
   query.near("location", point);
   query.withinMiles("location", point, 20);
-  query.doesNotExist("location");
-  query.exists("longitude");
-  query.exists("latitude");
   query.find({
     success: function(results) {
       console.log("Successfully retrieved " + results.length);
