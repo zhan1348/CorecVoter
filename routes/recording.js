@@ -83,15 +83,14 @@ router.post('/delete', function(req, res){
 router.post('/upload', upload.single('EZAudioTest'), function (req, res, next) {
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
-  console.log("hhhhhh");
+  console.log("hhhhhh + " + req.query.longitude);
   console.log(req.file);
+  var longitude = parseFloat(req.query.longitude);
+  var latitude =  parseFloat(req.query.latitude);
+  var description = req.query.description;
+  var title = req.query.title;
+  var userID = req.query.userID;
 
-  var title = req.body.title
-  var description = req.body.description;
-  var userID = req.body.userID;
-
-  var latitude = req.body.latitude;
-  var longitude = req.body.longitude;
 
   console.log(req.body);
   console.log('title:' + title + ', description:' + description+', userID:' +userID + ', latitude:' + latitude + ', longitude:'+longitude);
@@ -113,7 +112,7 @@ router.post('/upload', upload.single('EZAudioTest'), function (req, res, next) {
   });
 
 
-  res.status(404).end();
+  res.status(200).end();
   // res.send('OK');
 
 })
